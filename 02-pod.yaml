@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  labels:
+    environment: development
+    project: roboshop
+spec: #like adding in docker run --name and image to run and -p 80:80
+  containers:
+  #list of conatiners
+  - name: nginx
+    image: nginx
+    ports:
+    - containerPort: 80
+
