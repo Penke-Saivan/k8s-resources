@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: node-port-pod
+  labels:
+    project: roboshop
+    component: frontend
+    purpose: nodeport
+spec:
+  containers:
+    - name: nginx
+      image: nginx
