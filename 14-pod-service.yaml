@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cluster-ip-pod
+  labels:
+    project: roboshop
+    component: frontend
+    purpose: clusterIP
+spec:
+  containers:
+    - name: nginx
+      image: nginx
