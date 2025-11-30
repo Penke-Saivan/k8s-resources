@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: clusterIP-Service
+
+spec:
+  selector:
+    project: roboshop
+    component: frontend
+    purpose: clusterIP
+
+  ports:
+    - protocol: TCP
+      port: 80 #service port - clusterIPport
+      tragetPort: 80
