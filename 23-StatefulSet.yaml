@@ -20,7 +20,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-clusterIP
+  name: nginx-cluster-ip
   labels:
     app: nginx
     purpose: statefulset-demo
