@@ -28,7 +28,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: cluster-ip-service-deployment-vs-headless
+  name: cluster-ip-service
 
 spec:
   selector:
@@ -45,7 +45,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: cluster-ip-service-deployment-vs-headless
+  name: headless
 
 spec:
 #Headless service - clusterIP: None
