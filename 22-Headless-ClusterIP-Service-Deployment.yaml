@@ -39,10 +39,22 @@ spec:
     - protocol: TCP
       port: 80 #service port - clusterIPport
       targetPort: 80
+---
+#Headless service
 
-##login to conatiner and 
-# nslookup svc-name
+apiVersion: v1
+kind: Service
+metadata:
+  name: cluster-ip-service-deployment-vs-headless
 
-# apt update
-# apt install dnsutils
+spec:
+#Headless service - clusterIP: None
+  clusterIP: None
+  selector:
+    purpose: dp-vs-headless-demo
+    project: roboshop
 
+  ports:
+    - protocol: TCP
+      port: 80 #service port - clusterIPport
+      targetPort: 80
