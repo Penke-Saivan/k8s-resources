@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+  #replicas set resource labels
+  labels:
+    purpose: dp-vs-headless-demo
+    project: roboshop
+spec:
+  replicas: 5
+  selector:
+    #these lables are used to sleect pods
+    matchLabels:
+      purpose: dp-vs-headless-demo
+      project: roboshop
+      #pod definition
+  template:
+    metadata:
+      labels:
+        project: roboshop
+        purpose: dp-vs-headless-demo
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cluster-ip-service-deployment-vs-headless
+
+spec:
+  selector:
+    purpose: dp-vs-headless-demo
+    project: roboshop
+
+  ports:
+    - protocol: TCP
+      port: 80 #service port - clusterIPport
+      targetPort: 80
